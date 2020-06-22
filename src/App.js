@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import FlashcardList from "./FlashcardList";
 import "./app.css";
 import axios from "axios";
+const he = require("he");
 
 function App() {
   const [flashcards, setFlashcards] = useState([]);
@@ -16,11 +17,11 @@ function App() {
     });
   }, []);
 
-  function decodeString(str) {
-    const textArea = document.createElement("textarea");
-    textArea.innerHTML = str;
-    return textArea.value;
-  }
+  // function decodeString(str) {
+  //   const textArea = document.createElement("textarea");
+  //   textArea.innerHTML = str;
+  //   return textArea.value;
+  // }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -34,14 +35,14 @@ function App() {
       .then((res) => {
         setFlashcards(
           res.data.results.map((questionItem, index) => {
-            const answer = decodeString(questionItem.correct_answer);
+            const answer = he.decode(questionItem.correct_answer);
             const options = [
-              ...questionItem.incorrect_answers.map((a) => decodeString(a)),
+              ...questionItem.incorrect_answers.map((a) => he.decode(a)),
               answer,
             ];
             return {
               id: `${index}-${Date.now()}`,
-              question: decodeString(questionItem.question),
+              question: he.decode(questionItem.question),
               answer: answer,
               options: options.sort(() => Math.random() - 0.5),
             };
