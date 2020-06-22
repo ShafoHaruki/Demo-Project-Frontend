@@ -1,12 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FlashcardList from "./FlashcardList";
 import "./app.css";
+import axios from "axios";
 
 function App() {
-  //eslint-disable-next-line
   const [flashcards, setFlashcards] = useState(SAMPLE_FLASHCARDS);
+
+  useEffect(() => {
+    axios.get("https://opentdb.com/api.php?amount=30").then((res) => {
+      console.log(res.data);
+      setFlashcards(
+        res.data.results.map((questionItem, i) => {
+          const answer = decodeStr(questionItem.correct_answer);
+          const options = [
+            ...questionItem.incorrect_answers.map((ans) => decodeStr(ans)),
+            answer,
+          ];
+          return {
+            id: `${i}-${Date.now()}`,
+            question: decodeStr(questionItem.question),
+            answer,
+            options: options.sort(() => Math.random() - 0.5),
+          };
+        })
+      );
+    });
+  }, []);
+
+  //decode html entities in javascript
+  function decodeStr(str) {
+    const txt = document.createElement("textarea");
+    txt.innerHTML = str;
+    return txt.value;
+  }
+
   return (
-    <div className="App">
+    <div className="container">
       <FlashcardList flashcards={flashcards} />
     </div>
   );
