@@ -12,7 +12,7 @@ export default function Confirm(props) {
     e.preventDefault();
     props.prevStep();
   };
-  const { firstName, lastName, email, occupation, city, bio } = props;
+  const { firstName, lastName, email, occupation, city, bio } = props.values;
   return (
     <MuiThemeProvider>
       <React.Fragment>
@@ -28,15 +28,9 @@ export default function Confirm(props) {
         <RaisedButton
           label="Confirm & Continue"
           primary={true}
-          // style={styles.button}
           onClick={nextPage}
         />
-        <RaisedButton
-          label="Back"
-          primary={false}
-          // style={styles.button}
-          onClick={prevPage}
-        />
+        <RaisedButton label="Back" primary={false} onClick={prevPage} />
       </React.Fragment>
     </MuiThemeProvider>
   );

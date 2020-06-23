@@ -13,6 +13,7 @@ export default function FormPersonalDetails(props) {
     props.prevStep();
   };
   const { occupation, city, bio } = props.values;
+  const { setOccupation, setCity, setBio } = props.handlers;
 
   return (
     <MuiThemeProvider>
@@ -20,21 +21,21 @@ export default function FormPersonalDetails(props) {
         <TextField
           hintText="Enter Your Occupation"
           floatingLabelText="Occupation"
-          onChange={(e) => props.setOccupation(e.target.value)}
+          onChange={(e) => setOccupation(e.target.value)}
           defaultValue={occupation}
         />
         <br />
         <TextField
           hintText="Enter Your City"
           floatingLabelText="City"
-          onChange={(e) => props.setCity(e.target.value)}
+          onChange={(e) => setCity(e.target.value)}
           defaultValue={city}
         />
         <br />
         <TextField
           hintText="Enter Your Bio"
           floatingLabelText="Bio"
-          onChange={(e) => props.setBio(e.target.value)}
+          onChange={(e) => setBio(e.target.value)}
           defaultValue={bio}
         />
         <br />

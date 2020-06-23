@@ -3,6 +3,7 @@ import FlashcardList from "./FlashcardList";
 import SignUpModal from "./SignUpModal";
 import "./app.css";
 import axios from "axios";
+import ViewAgendaIcon from "@material-ui/icons/ViewAgenda";
 const he = require("he");
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
   return (
     <>
       <form className="header" onSubmit={handleSubmit}>
+        <ViewAgendaIcon />
         <h1 className="title">quizYourself</h1>
         <div className="form-group">
           <label htmlFor="category">Category</label>

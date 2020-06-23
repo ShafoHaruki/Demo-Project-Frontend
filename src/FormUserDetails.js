@@ -9,6 +9,7 @@ export default function FormUserDetails(props) {
     props.nextStep();
   };
   const { firstName, lastName, email } = props.values;
+  const { setFirstName, setLastName, setEmail } = props.handlers;
 
   return (
     <MuiThemeProvider>
@@ -16,21 +17,21 @@ export default function FormUserDetails(props) {
         <TextField
           hintText="Enter Your First Name"
           floatingLabelText="First Name"
-          onChange={(e) => props.setFirstName(e.target.value)}
+          onChange={(e) => setFirstName(e.target.value)}
           defaultValue={firstName}
         />
         <br />
         <TextField
           hintText="Enter Your Last Name"
           floatingLabelText="Last Name"
-          onChange={(e) => props.setLastName(e.target.value)}
+          onChange={(e) => setLastName(e.target.value)}
           defaultValue={lastName}
         />
         <br />
         <TextField
           hintText="Enter Your Email"
           floatingLabelText="Email"
-          onChange={(e) => props.setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
           defaultValue={email}
         />
         <br />

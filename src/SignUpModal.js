@@ -5,7 +5,7 @@ import FormPersonalDetails from "./FormPersonalDetails";
 import FormUserDetails from "./FormUserDetails";
 import Success from "./Success";
 import Confirm from "./Confirm";
-import CloseIcon from "@material-ui/icons/Close";
+import CancelIcon from "@material-ui/icons/Cancel";
 
 Modal.setAppElement("#root"); //This is needed so screen readers don't see main content when modal is opened.
 
@@ -26,6 +26,14 @@ export default function SignUpModal() {
     setStep(step - 1);
   };
   const values = { firstName, lastName, email, occupation, city, bio };
+  const handlers = {
+    setFirstName,
+    setLastName,
+    setEmail,
+    setOccupation,
+    setCity,
+    setBio,
+  };
 
   return (
     <div>
@@ -41,42 +49,41 @@ export default function SignUpModal() {
         onRequestClose={() => setModalIsOpen(false)}
         style={{
           overlay: { backgroundColor: "rgba(255, 255, 255, 0.5)" },
-          content: { color: "red" },
+          content: {
+            position: "absolute",
+            left: "280px",
+            right: "280px",
+          },
         }}
       >
+        <h3 className="modal-header">
+          Please enter your personal info to sign-up. <br />
+          Step: {step}/2
+        </h3>
         {step === 1 ? (
           <FormUserDetails
             nextStep={nextStep}
-            setFirstName={setFirstName}
-            setLastName={setLastName}
-            setEmail={setEmail}
+            handlers={handlers}
             values={values}
           />
         ) : step === 2 ? (
           <FormPersonalDetails
             nextStep={nextStep}
             prevStep={prevStep}
-            setOccupation={setOccupation}
-            setCity={setCity}
-            setBio={setBio}
+            handlers={handlers}
             values={values}
           />
         ) : step === 3 ? (
-          <Confirm
-            nextStep={nextStep}
-            prevStep={prevStep}
-            firstName={firstName}
-            lastName={lastName}
-            email={email}
-            occupation={occupation}
-            city={city}
-            bio={bio}
-          />
+          <Confirm nextStep={nextStep} prevStep={prevStep} values={values} />
         ) : (
           <Success firstName={firstName} />
         )}
         <div>
-          <CloseIcon onClick={() => setModalIsOpen(false)} className="btn" />
+          <CancelIcon
+            className="cancel-icon"
+            onClick={() => setModalIsOpen(false)}
+            className="btn"
+          />
         </div>
       </Modal>
     </div>
