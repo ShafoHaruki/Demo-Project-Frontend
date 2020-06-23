@@ -17,12 +17,6 @@ function App() {
     });
   }, []);
 
-  // function decodeString(str) {
-  //   const textArea = document.createElement("textarea");
-  //   textArea.innerHTML = str;
-  //   return textArea.value;
-  // }
-
   function handleSubmit(e) {
     e.preventDefault();
     axios
@@ -54,6 +48,7 @@ function App() {
   return (
     <>
       <form className="header" onSubmit={handleSubmit}>
+        <h1 className="title">flashcardApp</h1>
         <div className="form-group">
           <label htmlFor="category">Category</label>
           <select id="category" ref={categoryEl}>
@@ -74,7 +69,7 @@ function App() {
             id="amount"
             min="1"
             step="1"
-            defaultValue={10}
+            defaultValue={25}
             ref={amountEl}
           />
         </div>
