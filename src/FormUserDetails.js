@@ -15,21 +15,21 @@ export default function FormUserDetails(props) {
         <TextField
           hintText="Enter Your First Name"
           floatingLabelText="First Name"
-          // onChange={handleChange("firstName")}
+          onChange={(e) => props.setFirstName(e.target.value)}
           // defaultValue={values.firstName}
         />
         <br />
         <TextField
           hintText="Enter Your Last Name"
           floatingLabelText="Last Name"
-          // onChange={handleChange("lastName")}
+          onChange={(e) => props.setLastName(e.target.value)}
           // defaultValue={values.lastName}
         />
         <br />
         <TextField
           hintText="Enter Your Email"
           floatingLabelText="Email"
-          // onChange={handleChange("email")}
+          onChange={(e) => props.setEmail(e.target.value)}
           // defaultValue={values.email}
         />
         <br />

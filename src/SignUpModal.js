@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import "./SignInModal.css";
+import "./SignUpModal.css";
 import FormPersonalDetails from "./FormPersonalDetails";
 import FormUserDetails from "./FormUserDetails";
 import Success from "./Success";
@@ -8,7 +8,7 @@ import Confirm from "./Confirm";
 
 Modal.setAppElement("#root"); //This is needed so screen readers don't see main content when modal is opened.
 
-export default function SignInModal() {
+export default function SignUpModal() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [step, setStep] = useState(1);
   const [firstName, setFirstName] = useState("");
@@ -27,7 +27,10 @@ export default function SignInModal() {
 
   return (
     <div>
-      <button onClick={() => setModalIsOpen(true)}>Sign-in</button>
+      <button onClick={() => setModalIsOpen(true)}>
+        New user? <br />
+        Sign up here.
+      </button>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
@@ -39,15 +42,32 @@ export default function SignInModal() {
         {step === 1 ? (
           <FormUserDetails
             nextStep={nextStep}
-            // handleChange={handleChange}
+            setFirstName={setFirstName}
+            setLastName={setLastName}
+            setEmail={setEmail}
             // values={values}
           />
         ) : step === 2 ? (
-          <FormPersonalDetails nextStep={nextStep} prevStep={prevStep} />
+          <FormPersonalDetails
+            nextStep={nextStep}
+            prevStep={prevStep}
+            setOccupation={setOccupation}
+            setCity={setCity}
+            setBio={setBio}
+          />
         ) : step === 3 ? (
-          <Confirm nextStep={nextStep} prevStep={prevStep} />
+          <Confirm
+            nextStep={nextStep}
+            prevStep={prevStep}
+            firstName={firstName}
+            lastName={lastName}
+            email={email}
+            occupation={occupation}
+            city={city}
+            bio={bio}
+          />
         ) : (
-          <Success />
+          <Success firstName={firstName} />
         )}
         <div>
           <button onClick={() => setModalIsOpen(false)}>X</button>

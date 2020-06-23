@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import FlashcardList from "./FlashcardList";
-import SignInModal from "./SignInModal";
+import SignUpModal from "./SignUpModal";
 import "./app.css";
 import axios from "axios";
 const he = require("he");
@@ -78,7 +78,7 @@ function App() {
         <div className="form-group">
           <button className="btn">Generate</button>
         </div>
-        <SignInModal />
+        <SignUpModal />
       </form>
 
       <div className="container">

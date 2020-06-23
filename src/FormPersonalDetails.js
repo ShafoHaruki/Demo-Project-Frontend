@@ -19,21 +19,21 @@ export default function FormPersonalDetails(props) {
         <TextField
           hintText="Enter Your Occupation"
           floatingLabelText="Occupation"
-          // onChange={handleChange("occupation")}
+          onChange={(e) => props.setOccupation(e.target.value)}
           // defaultValue={values.occupation}
         />
         <br />
         <TextField
           hintText="Enter Your City"
           floatingLabelText="City"
-          //   onChange={handleChange("city")}
+          onChange={(e) => props.setCity(e.target.value)}
           //   defaultValue={values.city}
         />
         <br />
         <TextField
           hintText="Enter Your Bio"
           floatingLabelText="Bio"
-          // onChange={handleChange("bio")}
+          onChange={(e) => props.setBio(e.target.value)}
           // defaultValue={values.bio}
         />
         <br />
