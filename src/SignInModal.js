@@ -11,6 +11,19 @@ Modal.setAppElement("#root"); //This is needed so screen readers don't see main 
 export default function SignInModal() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [step, setStep] = useState(1);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [occupation, setOccupation] = useState("");
+  const [city, setCity] = useState("");
+  const [bio, setBio] = useState("");
+
+  const nextStep = () => {
+    setStep(step + 1);
+  };
+  const prevStep = () => {
+    setStep(step - 1);
+  };
 
   return (
     <div>
@@ -24,17 +37,20 @@ export default function SignInModal() {
         }}
       >
         {step === 1 ? (
-          <FormPersonalDetails />
+          <FormUserDetails
+            nextStep={nextStep}
+            // handleChange={handleChange}
+            // values={values}
+          />
         ) : step === 2 ? (
-          <FormUserDetails />
+          <FormPersonalDetails nextStep={nextStep} prevStep={prevStep} />
         ) : step === 3 ? (
-          <Success />
+          <Confirm nextStep={nextStep} prevStep={prevStep} />
         ) : (
-          <Confirm />
+          <Success />
         )}
         <div>
           <button onClick={() => setModalIsOpen(false)}>X</button>
-          <button onClick={() => setStep(step + 1)}>Next page</button>
         </div>
       </Modal>
     </div>
