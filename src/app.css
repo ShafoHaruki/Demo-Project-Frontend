@@ -1,6 +1,7 @@
 body {
   background-color: lightgray;
   margin: 0;
+  overflow-y: scroll;
 }
 
 .title {
