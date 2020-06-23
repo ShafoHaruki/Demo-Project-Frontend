@@ -12,6 +12,7 @@ export default function FormPersonalDetails(props) {
     e.preventDefault();
     props.prevStep();
   };
+  const { occupation, city, bio } = props.values;
 
   return (
     <MuiThemeProvider>
@@ -20,35 +21,25 @@ export default function FormPersonalDetails(props) {
           hintText="Enter Your Occupation"
           floatingLabelText="Occupation"
           onChange={(e) => props.setOccupation(e.target.value)}
-          // defaultValue={values.occupation}
+          defaultValue={occupation}
         />
         <br />
         <TextField
           hintText="Enter Your City"
           floatingLabelText="City"
           onChange={(e) => props.setCity(e.target.value)}
-          //   defaultValue={values.city}
+          defaultValue={city}
         />
         <br />
         <TextField
           hintText="Enter Your Bio"
           floatingLabelText="Bio"
           onChange={(e) => props.setBio(e.target.value)}
-          // defaultValue={values.bio}
+          defaultValue={bio}
         />
         <br />
-        <RaisedButton
-          label="Continue"
-          primary={true}
-          // style={styles.button}
-          onClick={nextPage}
-        />
-        <RaisedButton
-          label="Back"
-          primary={false}
-          // style={styles.button}
-          onClick={prevPage}
-        />
+        <RaisedButton label="Continue" primary={true} onClick={nextPage} />
+        <RaisedButton label="Back" primary={false} onClick={prevPage} />
       </React.Fragment>
     </MuiThemeProvider>
   );

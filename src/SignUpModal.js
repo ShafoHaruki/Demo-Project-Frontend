@@ -5,6 +5,7 @@ import FormPersonalDetails from "./FormPersonalDetails";
 import FormUserDetails from "./FormUserDetails";
 import Success from "./Success";
 import Confirm from "./Confirm";
+import CloseIcon from "@material-ui/icons/Close";
 
 Modal.setAppElement("#root"); //This is needed so screen readers don't see main content when modal is opened.
 
@@ -24,10 +25,14 @@ export default function SignUpModal() {
   const prevStep = () => {
     setStep(step - 1);
   };
+  const values = { firstName, lastName, email, occupation, city, bio };
 
   return (
     <div>
-      <button onClick={() => setModalIsOpen(true)}>
+      <button
+        onClick={() => setModalIsOpen(true)}
+        style={{ cursor: "pointer" }}
+      >
         New user? <br />
         Sign up here.
       </button>
@@ -45,7 +50,7 @@ export default function SignUpModal() {
             setFirstName={setFirstName}
             setLastName={setLastName}
             setEmail={setEmail}
-            // values={values}
+            values={values}
           />
         ) : step === 2 ? (
           <FormPersonalDetails
@@ -54,6 +59,7 @@ export default function SignUpModal() {
             setOccupation={setOccupation}
             setCity={setCity}
             setBio={setBio}
+            values={values}
           />
         ) : step === 3 ? (
           <Confirm
@@ -70,7 +76,7 @@ export default function SignUpModal() {
           <Success firstName={firstName} />
         )}
         <div>
-          <button onClick={() => setModalIsOpen(false)}>X</button>
+          <CloseIcon onClick={() => setModalIsOpen(false)} className="btn" />
         </div>
       </Modal>
     </div>
