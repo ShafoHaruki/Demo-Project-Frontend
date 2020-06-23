@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import FlashcardList from "./FlashcardList";
+import SignInModal from "./SignInModal";
 import "./app.css";
 import axios from "axios";
 const he = require("he");
@@ -48,7 +49,7 @@ function App() {
   return (
     <>
       <form className="header" onSubmit={handleSubmit}>
-        <h1 className="title">flashcardApp</h1>
+        <h1 className="title">quizYourself</h1>
         <div className="form-group">
           <label htmlFor="category">Category</label>
           <select id="category" ref={categoryEl}>
@@ -77,6 +78,7 @@ function App() {
         <div className="form-group">
           <button className="btn">Generate</button>
         </div>
+        <SignInModal />
       </form>
 
       <div className="container">

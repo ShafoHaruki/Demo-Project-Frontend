@@ -14,11 +14,12 @@ body {
 
 .header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-color: white;
   padding: 0 1.5rem;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+  position: sticky;
 }
 
 .form-group {
@@ -44,6 +45,7 @@ body {
 
 .btn:hover {
   background-color: hsl(200, 100%, 40%);
+  transition: all 0.5s ease 0s;
 }
 
 .card-grid {
