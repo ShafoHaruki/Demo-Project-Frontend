@@ -1,14 +1,22 @@
 import React, { useState, useEffect, useRef } from "react";
-import FlashcardList from "./FlashcardList";
-import SignUpModal from "./SignUpModal";
+import FlashcardList from "./Flashcards/FlashcardList";
+import SignUpModal from "./SignUpModal/SignUpModal";
+import Sidebar from "./Sidebar/Sidebar";
+import Footer from "./Footer/Footer";
 import "./app.css";
 import axios from "axios";
 import ViewAgendaIcon from "@material-ui/icons/ViewAgenda";
+
 const he = require("he");
 
-function App() {
+export default function App() {
   const [flashcards, setFlashcards] = useState([]);
   const [categories, setCategories] = useState([]);
+
+  const [font, setFont] = useState("");
+  function handleFontName(font) {
+    setFont(font);
+  }
 
   const categoryEl = useRef();
   const amountEl = useRef();
@@ -54,6 +62,7 @@ function App() {
         <h1 className="title">quizYourself</h1>
         <div className="form-group">
           <label htmlFor="category">Category</label>
+
           <select id="category" ref={categoryEl}>
             {categories.map((category) => {
               return (
@@ -64,7 +73,6 @@ function App() {
             })}
           </select>
         </div>
-
         <div className="form-group">
           <label htmlFor="amount">Number of Questions</label>
           <input
@@ -76,18 +84,19 @@ function App() {
             ref={amountEl}
           />
         </div>
-
         <div className="form-group">
-          <button className="btn">Generate</button>
+          <button className="btn">Generate Flashcards</button>
         </div>
         <SignUpModal />
       </form>
 
       <div className="container">
-        <FlashcardList flashcards={flashcards} />
+        <Sidebar onFontSelect={(font) => handleFontName(font)} />
+        <div className="flashcard-grid">
+          <FlashcardList flashcards={flashcards} font={font} />
+        </div>
       </div>
+      <Footer />
     </>
   );
 }
-
-export default App;

@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
+import "./flashcard.css";
 
-export default function Flashcard({ flashcard }) {
+export default function Flashcard({ flashcard, font }) {
   const [flip, setFlip] = useState(false);
 
   const frontEl = useRef();
@@ -8,7 +9,7 @@ export default function Flashcard({ flashcard }) {
 
   return (
     <div
-      className={`card ${flip ? "flip" : ""}`}
+      className={`card ${flip ? "flip" : ""} ${font}`}
       onClick={() => setFlip(!flip)}
     >
       <div className="front" ref={frontEl}>

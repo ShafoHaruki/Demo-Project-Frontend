@@ -1,0 +1,36 @@
+aside {
+  background-color: #55697a;
+  height: 80vh;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.3);
+  width: min-content;
+  padding: 8px;
+}
+
+.fontSelectButton {
+  background-color: #c2f1dc;
+  border: none;
+  border-radius: 8px;
+  margin: 0 8px 5px;
+  color: black;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  min-width: max-content;
+}
+
+.fontSelectButton:hover {
+  cursor: pointer;
+}
+
+.fontSelectButton:focus {
+  outline: 0;
+}
+
+.fontSelectHeader {
+  text-align: center;
+  margin: auto;
+  padding: 5px;
+  color: white;
+}

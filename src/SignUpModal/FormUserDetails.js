@@ -14,6 +14,10 @@ export default function FormUserDetails(props) {
   return (
     <MuiThemeProvider>
       <React.Fragment>
+        <h3 className="modal-header">
+          Please enter your personal info to sign-up. <br />
+          Step: 1/2
+        </h3>
         <TextField
           hintText="Enter Your First Name"
           floatingLabelText="First Name"

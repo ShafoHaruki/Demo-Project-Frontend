@@ -6,6 +6,7 @@ import FormUserDetails from "./FormUserDetails";
 import Success from "./Success";
 import Confirm from "./Confirm";
 import CancelIcon from "@material-ui/icons/Cancel";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 Modal.setAppElement("#root"); //This is needed so screen readers don't see main content when modal is opened.
 
@@ -41,8 +42,8 @@ export default function SignUpModal() {
         onClick={() => setModalIsOpen(true)}
         style={{ cursor: "pointer" }}
       >
-        New user? <br />
-        Sign up here.
+        <AccountCircleIcon />
+        Anonymous <br /> Click here to sign up
       </button>
       <Modal
         isOpen={modalIsOpen}
@@ -51,15 +52,14 @@ export default function SignUpModal() {
           overlay: { backgroundColor: "rgba(255, 255, 255, 0.5)" },
           content: {
             position: "absolute",
-            left: "280px",
-            right: "280px",
+            minHeight: "400px",
+            top: "25%",
+            left: "25%",
+            right: "25%",
+            bottom: "30%",
           },
         }}
       >
-        <h3 className="modal-header">
-          Please enter your personal info to sign-up. <br />
-          Step: {step}/2
-        </h3>
         {step === 1 ? (
           <FormUserDetails
             nextStep={nextStep}
@@ -82,7 +82,6 @@ export default function SignUpModal() {
           <CancelIcon
             className="cancel-icon"
             onClick={() => setModalIsOpen(false)}
-            className="btn"
           />
         </div>
       </Modal>

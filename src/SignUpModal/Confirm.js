@@ -16,6 +16,10 @@ export default function Confirm(props) {
   return (
     <MuiThemeProvider>
       <React.Fragment>
+        <h3 className="modal-header">
+          Please check that your inputted information are correct. You may press
+          back to ammend.
+        </h3>
         <List>
           <ListItem primaryText="First Name" secondaryText={firstName} />
           <ListItem primaryText="Last Name" secondaryText={lastName} />
