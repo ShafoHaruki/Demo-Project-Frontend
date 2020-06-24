@@ -71,7 +71,7 @@ body {
   border-radius: 0.5rem;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
   transform-style: preserve-3d;
-  transition: 100ms;
+  transition: 500ms;
   background-color: white;
   cursor: pointer;
   transform: perspective(200px) rotateY(var(--rotate-y, 0))
@@ -84,11 +84,7 @@ body {
 }
 
 .card.flip {
-  --rotate-y: 180deg;
-}
-
-.card .front {
-  left: 0;
+  --rotate-y: 180.00001deg;
 }
 
 .card .front,
