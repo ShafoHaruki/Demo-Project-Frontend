@@ -1,9 +1,12 @@
 aside {
   background-color: #55697a;
-  height: 80vh;
-  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.3);
+  height: 100vh;
   width: min-content;
   padding: 8px;
+  position: fixed;
+  z-index: 1;
+  top: 93.5px;
+  left: 0;
 }
 
 .fontSelectButton {

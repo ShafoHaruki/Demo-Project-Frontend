@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-  margin: 1rem 2rem;
+  margin: 6rem 8rem;
   display: flex;
   flex-direction: row;
 }
@@ -23,12 +23,15 @@ body {
 .header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   background-color: khaki;
   padding: 0 1.5rem;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
-  position: sticky;
+  position: fixed;
+  z-index: 2;
+  top: 0px;
+  width: 100vw;
 }
 
 .form-group {
@@ -92,6 +95,10 @@ body {
   grid-area: 1 / 1 / 2 / 2;
   padding: 1rem;
   backface-visibility: hidden;
+}
+
+.card .front {
+  left: 0;
 }
 
 .card .back {

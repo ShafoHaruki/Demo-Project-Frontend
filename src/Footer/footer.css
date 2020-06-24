@@ -1,0 +1,9 @@
+.footer {
+  display: flex;
+  background-color: #98c9b1;
+  position: sticky;
+  left: 0;
+  /* top: 80vh; */
+  /* bottom: 0; */
+  margin-left: 130px;
+}
