@@ -8,8 +8,8 @@ export default function FormUserDetails(props) {
     e.preventDefault();
     props.nextStep();
   };
-  const { firstName, lastName, email } = props.values;
-  const { setFirstName, setLastName, setEmail } = props.handlers;
+  const { firstName, lastName, email, code } = props.values;
+  const { setFirstName, setLastName, setEmail, setCode } = props.handlers;
 
   return (
     <MuiThemeProvider>
@@ -23,6 +23,7 @@ export default function FormUserDetails(props) {
           floatingLabelText="First Name"
           onChange={(e) => setFirstName(e.target.value)}
           defaultValue={firstName}
+          required="required"
         />
         <br />
         <TextField
@@ -39,6 +40,18 @@ export default function FormUserDetails(props) {
           defaultValue={email}
         />
         <br />
+        {/* <TextField
+          hintText="Enter your code one"
+          floatingLabelText="Code one"
+          onChange={(e) =>
+            setCode((prevState) => ({
+              ...prevState,
+              codeOne: e.target.value,
+            }))
+          }
+          defaultValue={code.codeOne}
+        />
+        <br /> */}
         <RaisedButton label="Continue" primary={true} onClick={nextPage} />
       </React.Fragment>
     </MuiThemeProvider>

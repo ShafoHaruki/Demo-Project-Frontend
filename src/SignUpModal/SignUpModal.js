@@ -19,6 +19,7 @@ export default function SignUpModal() {
   const [occupation, setOccupation] = useState("");
   const [city, setCity] = useState("");
   const [bio, setBio] = useState("");
+  // const [code, setCode] = useState({ codeOne: "", codeTwo: "" });
 
   const nextStep = () => {
     setStep(step + 1);
@@ -26,7 +27,15 @@ export default function SignUpModal() {
   const prevStep = () => {
     setStep(step - 1);
   };
-  const values = { firstName, lastName, email, occupation, city, bio };
+  const values = {
+    firstName,
+    lastName,
+    email,
+    occupation,
+    city,
+    bio,
+    // code,
+  };
   const handlers = {
     setFirstName,
     setLastName,
@@ -34,6 +43,7 @@ export default function SignUpModal() {
     setOccupation,
     setCity,
     setBio,
+    // setCode,
   };
 
   return (
@@ -43,7 +53,8 @@ export default function SignUpModal() {
         style={{ cursor: "pointer" }}
       >
         <AccountCircleIcon />
-        Anonymous <br /> Click here to sign up
+        <br />
+        New? Click here to sign up
       </button>
       <Modal
         isOpen={modalIsOpen}
@@ -53,9 +64,9 @@ export default function SignUpModal() {
           content: {
             position: "absolute",
             minHeight: "400px",
-            top: "25%",
-            left: "25%",
-            right: "25%",
+            maxWidth: "40vw",
+            top: "25vh",
+            left: "25vw",
             bottom: "30%",
           },
         }}

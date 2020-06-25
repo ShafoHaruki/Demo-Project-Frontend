@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import FlashcardList from "./Flashcards/FlashcardList";
-import SignUpModal from "./SignUpModal/SignUpModal";
 import Sidebar from "./Sidebar/Sidebar";
 import Footer from "./Footer/Footer";
 import "./app.css";
@@ -85,9 +84,11 @@ export default function App() {
           />
         </div>
         <div className="form-group">
-          <button className="btn">Generate Flashcards</button>
+          <button className="btn">
+            Generate <br />
+            Flashcards
+          </button>
         </div>
-        <SignUpModal />
       </form>
 
       <div className="container">

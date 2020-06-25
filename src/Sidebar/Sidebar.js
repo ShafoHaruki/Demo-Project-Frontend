@@ -1,13 +1,15 @@
 import React from "react";
+import SignUpModal from "../SignUpModal/SignUpModal";
 import "./sidebar.css";
 
 function Sidebar(props) {
   return (
     <>
       <aside>
+        <SignUpModal />
+        <hr />
         <div className="font-select-container">
           <p className="fontSelectHeader">Choose your fonts!</p>
-          <hr />
           <button
             className="fontSelectButton"
             onClick={() => {

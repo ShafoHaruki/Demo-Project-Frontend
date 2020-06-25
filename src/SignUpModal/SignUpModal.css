@@ -4,5 +4,7 @@
 }
 
 .cancel-icon {
-  position: relative;
+  position: fixed;
+  top: 24vh;
+  left: 24vw;
 }
