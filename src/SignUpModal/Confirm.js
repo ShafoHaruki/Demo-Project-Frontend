@@ -12,7 +12,7 @@ export default function Confirm(props) {
     e.preventDefault();
     props.prevStep();
   };
-  const { firstName, lastName, email, occupation, city, bio } = props.values;
+  const { firstName, lastName, email, occupation, city, bio } = props.user;
   return (
     <MuiThemeProvider>
       <React.Fragment>

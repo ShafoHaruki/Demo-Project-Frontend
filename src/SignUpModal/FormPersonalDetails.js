@@ -12,8 +12,7 @@ export default function FormPersonalDetails(props) {
     e.preventDefault();
     props.prevStep();
   };
-  const { occupation, city, bio, code } = props.values;
-  const { setOccupation, setCity, setBio, setCode } = props.handlers;
+  const { user, setUser } = props
 
   return (
     <MuiThemeProvider>
@@ -25,36 +24,24 @@ export default function FormPersonalDetails(props) {
         <TextField
           hintText="Enter Your Occupation"
           floatingLabelText="Occupation"
-          onChange={(e) => setOccupation(e.target.value)}
-          defaultValue={occupation}
+          onChange={(e) => setUser({...user, occupation: e.target.value})}
+          defaultValue={user.occupation}
         />
         <br />
         <TextField
           hintText="Enter Your City"
           floatingLabelText="City"
-          onChange={(e) => setCity(e.target.value)}
-          defaultValue={city}
+          onChange={(e) => setUser({...user, city: e.target.value})}
+          defaultValue={user.city}
         />
         <br />
         <TextField
           hintText="Enter Your Bio"
           floatingLabelText="Bio"
-          onChange={(e) => setBio(e.target.value)}
-          defaultValue={bio}
+          onChange={(e) => setUser({...user, bio: e.target.value})}
+          defaultValue={user.bio}
         />
         <br />
-        {/* <TextField
-          hintText="Enter your code two"
-          floatingLabelText="Code two"
-          onChange={(e) =>
-            setCode((prevState) => ({
-              ...prevState,
-              codeTwo: e.target.value,
-            }))
-          }
-          defaultValue={code.codeTwo}
-        />
-        <br /> */}
         <RaisedButton label="Continue" primary={true} onClick={nextPage} />
         <RaisedButton label="Back" primary={false} onClick={prevPage} />
       </React.Fragment>

@@ -8,8 +8,7 @@ export default function FormUserDetails(props) {
     e.preventDefault();
     props.nextStep();
   };
-  const { firstName, lastName, email, code } = props.values;
-  const { setFirstName, setLastName, setEmail, setCode } = props.handlers;
+  const { user, setUser } = props;
 
   return (
     <MuiThemeProvider>
@@ -21,37 +20,25 @@ export default function FormUserDetails(props) {
         <TextField
           hintText="Enter Your First Name"
           floatingLabelText="First Name"
-          onChange={(e) => setFirstName(e.target.value)}
-          defaultValue={firstName}
+          onChange={(e) => setUser({...user, firstName: e.target.value})}
+          defaultValue={user.firstName}
           required="required"
         />
         <br />
         <TextField
           hintText="Enter Your Last Name"
           floatingLabelText="Last Name"
-          onChange={(e) => setLastName(e.target.value)}
-          defaultValue={lastName}
+          onChange={(e) => setUser({...user, lastName: e.target.value})}
+          defaultValue={user.lastName}
         />
         <br />
         <TextField
           hintText="Enter Your Email"
           floatingLabelText="Email"
-          onChange={(e) => setEmail(e.target.value)}
-          defaultValue={email}
+          onChange={(e) => setUser({...user, email: e.target.value})}
+          defaultValue={user.email}
         />
         <br />
-        {/* <TextField
-          hintText="Enter your code one"
-          floatingLabelText="Code one"
-          onChange={(e) =>
-            setCode((prevState) => ({
-              ...prevState,
-              codeOne: e.target.value,
-            }))
-          }
-          defaultValue={code.codeOne}
-        />
-        <br /> */}
         <RaisedButton label="Continue" primary={true} onClick={nextPage} />
       </React.Fragment>
     </MuiThemeProvider>

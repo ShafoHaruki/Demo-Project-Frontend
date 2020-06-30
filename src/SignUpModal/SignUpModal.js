@@ -13,37 +13,13 @@ Modal.setAppElement("#root"); //This is needed so screen readers don't see main 
 export default function SignUpModal() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [step, setStep] = useState(1);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [occupation, setOccupation] = useState("");
-  const [city, setCity] = useState("");
-  const [bio, setBio] = useState("");
-  // const [code, setCode] = useState({ codeOne: "", codeTwo: "" });
+  const [user, setUser] = useState({firstName:"", lastName:"", email:"", occupation:"", city:"", bio:"",})
 
   const nextStep = () => {
     setStep(step + 1);
   };
   const prevStep = () => {
     setStep(step - 1);
-  };
-  const values = {
-    firstName,
-    lastName,
-    email,
-    occupation,
-    city,
-    bio,
-    // code,
-  };
-  const handlers = {
-    setFirstName,
-    setLastName,
-    setEmail,
-    setOccupation,
-    setCity,
-    setBio,
-    // setCode,
   };
 
   return (
@@ -74,20 +50,20 @@ export default function SignUpModal() {
         {step === 1 ? (
           <FormUserDetails
             nextStep={nextStep}
-            handlers={handlers}
-            values={values}
+            user={user}
+            setUser={setUser}
           />
         ) : step === 2 ? (
           <FormPersonalDetails
             nextStep={nextStep}
             prevStep={prevStep}
-            handlers={handlers}
-            values={values}
+            user={user}
+            setUser={setUser}
           />
         ) : step === 3 ? (
-          <Confirm nextStep={nextStep} prevStep={prevStep} values={values} />
+          <Confirm nextStep={nextStep} prevStep={prevStep} user={user} />
         ) : (
-          <Success firstName={firstName} />
+          <Success firstName={user.firstName} />
         )}
         <div>
           <CancelIcon
