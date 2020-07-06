@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import "./SignUpModal.css";
-import FormPersonalDetails from "./FormPersonalDetails";
+import FormAccountDetails from "./FormAccountDetails"
 import FormUserDetails from "./FormUserDetails";
 import Success from "./Success";
 import Confirm from "./Confirm";
 import CancelIcon from "@material-ui/icons/Cancel";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+// import axios from "axios";
 
 Modal.setAppElement("#root"); //This is needed so screen readers don't see main content when modal is opened.
 
 export default function SignUpModal() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [step, setStep] = useState(1);
-  const [user, setUser] = useState({firstName:"", lastName:"", email:"", occupation:"", city:"", bio:"",})
+  const [user, setUser] = useState({name:"", country:"", bio:"", email:"", password:"", reEnterPassword:"",})
 
   const nextStep = () => {
     setStep(step + 1);
@@ -54,7 +55,7 @@ export default function SignUpModal() {
             setUser={setUser}
           />
         ) : step === 2 ? (
-          <FormPersonalDetails
+          <FormAccountDetails
             nextStep={nextStep}
             prevStep={prevStep}
             user={user}
@@ -63,7 +64,7 @@ export default function SignUpModal() {
         ) : step === 3 ? (
           <Confirm nextStep={nextStep} prevStep={prevStep} user={user} />
         ) : (
-          <Success firstName={user.firstName} />
+          <Success user={user} />
         )}
         <div>
           <CancelIcon

@@ -37,3 +37,17 @@ aside {
   padding: 5px;
   color: white;
 }
+
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  align-items: center;
+}

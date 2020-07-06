@@ -1,19 +1,35 @@
 import React from "react";
 import SignUpModal from "../SignUpModal/SignUpModal";
+import { Link, BrowserRouter as Router } from "react-router-dom";
 import "./sidebar.css";
 
-function Sidebar(props) {
+function Sidebar({ onFontSelect }) {
   return (
-    <>
+    <Router>
       <aside>
         <SignUpModal />
+        <hr />
+        <nav>
+          <ul className="nav-links">
+            <Link to="/">
+              <button>Main Page</button>
+            </Link>
+            <Link to="/UserDeck">
+              <button>Your Deck</button>
+            </Link>
+            <Link to="/AboutApp">
+              <button>About App</button>
+            </Link>
+          </ul>
+        </nav>
+
         <hr />
         <div className="font-select-container">
           <p className="fontSelectHeader">Choose your fonts!</p>
           <button
             className="fontSelectButton"
             onClick={() => {
-              props.onFontSelect("");
+              onFontSelect("");
             }}
           >
             Default Font
@@ -21,7 +37,7 @@ function Sidebar(props) {
           <button
             className="fontSelectButton"
             onClick={() => {
-              props.onFontSelect("nunito");
+              onFontSelect("nunito");
             }}
           >
             Nunito Font
@@ -29,7 +45,7 @@ function Sidebar(props) {
           <button
             className="fontSelectButton"
             onClick={() => {
-              props.onFontSelect("titillium");
+              onFontSelect("titillium");
             }}
           >
             Titillium Font
@@ -37,14 +53,14 @@ function Sidebar(props) {
           <button
             className="fontSelectButton"
             onClick={() => {
-              props.onFontSelect("inconsolata");
+              onFontSelect("inconsolata");
             }}
           >
             Inconsolata Font
           </button>
         </div>
       </aside>
-    </>
+    </Router>
   );
 }
 

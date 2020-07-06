@@ -3,7 +3,7 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import TextField from "material-ui/TextField";
 import RaisedButton from "material-ui/RaisedButton";
 
-export default function FormPersonalDetails(props) {
+export default function FormAccountDetails(props) {
   const nextPage = (e) => {
     e.preventDefault();
     props.nextStep();
@@ -12,7 +12,7 @@ export default function FormPersonalDetails(props) {
     e.preventDefault();
     props.prevStep();
   };
-  const { user, setUser } = props
+  const { user, setUser } = props;
 
   return (
     <MuiThemeProvider>
@@ -22,24 +22,26 @@ export default function FormPersonalDetails(props) {
           Step: 2/2
         </h3>
         <TextField
-          hintText="Enter Your Occupation"
-          floatingLabelText="Occupation"
-          onChange={(e) => setUser({...user, occupation: e.target.value})}
-          defaultValue={user.occupation}
+          hintText="Enter Your Email"
+          floatingLabelText="Email"
+          onChange={(e) => setUser({ ...user, email: e.target.value })}
+          defaultValue={user.email}
         />
         <br />
         <TextField
-          hintText="Enter Your City"
-          floatingLabelText="City"
-          onChange={(e) => setUser({...user, city: e.target.value})}
-          defaultValue={user.city}
+          hintText="Consider A Strong Password"
+          floatingLabelText="Password"
+          onChange={(e) => setUser({ ...user, password: e.target.value })}
+          defaultValue={user.password}
         />
         <br />
         <TextField
-          hintText="Enter Your Bio"
-          floatingLabelText="Bio"
-          onChange={(e) => setUser({...user, bio: e.target.value})}
-          defaultValue={user.bio}
+          hintText="Make Sure They Are The Same"
+          floatingLabelText="Re-Enter Password"
+          onChange={(e) =>
+            setUser({ ...user, reEnterPassword: e.target.value })
+          }
+          defaultValue={user.reEnterPassword}
         />
         <br />
         <RaisedButton label="Continue" primary={true} onClick={nextPage} />

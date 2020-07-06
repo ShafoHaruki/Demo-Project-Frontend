@@ -12,7 +12,7 @@ export default function Confirm(props) {
     e.preventDefault();
     props.prevStep();
   };
-  const { firstName, lastName, email, occupation, city, bio } = props.user;
+  const { name, country, bio, email } = props.user;
   return (
     <MuiThemeProvider>
       <React.Fragment>
@@ -21,12 +21,10 @@ export default function Confirm(props) {
           back to ammend.
         </h3>
         <List>
-          <ListItem primaryText="First Name" secondaryText={firstName} />
-          <ListItem primaryText="Last Name" secondaryText={lastName} />
-          <ListItem primaryText="Email" secondaryText={email} />
-          <ListItem primaryText="Occupation" secondaryText={occupation} />
-          <ListItem primaryText="City" secondaryText={city} />
+          <ListItem primaryText="Name" secondaryText={name} />
+          <ListItem primaryText="Country" secondaryText={country} />
           <ListItem primaryText="Bio" secondaryText={bio} />
+          <ListItem primaryText="Email" secondaryText={email} />
         </List>
         <br />
         <RaisedButton

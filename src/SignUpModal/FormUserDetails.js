@@ -18,25 +18,25 @@ export default function FormUserDetails(props) {
           Step: 1/2
         </h3>
         <TextField
-          hintText="Enter Your First Name"
-          floatingLabelText="First Name"
-          onChange={(e) => setUser({...user, firstName: e.target.value})}
-          defaultValue={user.firstName}
+          hintText="Enter Your Name"
+          floatingLabelText="Name"
+          onChange={(e) => setUser({...user, name: e.target.value})}
+          defaultValue={user.name}
           required="required"
         />
         <br />
         <TextField
-          hintText="Enter Your Last Name"
-          floatingLabelText="Last Name"
-          onChange={(e) => setUser({...user, lastName: e.target.value})}
-          defaultValue={user.lastName}
+          hintText="Enter Your Country"
+          floatingLabelText="Country"
+          onChange={(e) => setUser({...user, country: e.target.value})}
+          defaultValue={user.country}
         />
         <br />
         <TextField
-          hintText="Enter Your Email"
-          floatingLabelText="Email"
-          onChange={(e) => setUser({...user, email: e.target.value})}
-          defaultValue={user.email}
+          hintText="Enter Your Bio"
+          floatingLabelText="Bio"
+          onChange={(e) => setUser({...user, bio: e.target.value})}
+          defaultValue={user.bio}
         />
         <br />
         <RaisedButton label="Continue" primary={true} onClick={nextPage} />

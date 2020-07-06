@@ -5,14 +5,16 @@ import Footer from "./Footer/Footer";
 import "./app.css";
 import axios from "axios";
 import ViewAgendaIcon from "@material-ui/icons/ViewAgenda";
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import UserDeck from "./UserDeck";
+import AboutApp from "./AboutApp";
 const he = require("he");
 
 export default function App() {
   const [flashcards, setFlashcards] = useState([]);
   const [categories, setCategories] = useState([]);
-
   const [font, setFont] = useState("");
+
   function handleFontName(font) {
     setFont(font);
   }
@@ -43,6 +45,7 @@ export default function App() {
               ...questionItem.incorrect_answers.map((a) => he.decode(a)),
               answer,
             ];
+
             return {
               id: `${index}-${Date.now()}`,
               question: he.decode(questionItem.question),
@@ -94,7 +97,19 @@ export default function App() {
       <div className="container">
         <Sidebar onFontSelect={(font) => handleFontName(font)} />
         <div className="flashcard-grid">
-          <FlashcardList flashcards={flashcards} font={font} />
+          <Router>
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={(props) => (
+                  <FlashcardList flashcards={flashcards} font={font} />
+                )}
+              />
+              <Route path="/UserDeck" component={UserDeck} />
+              <Route path="/AboutApp" component={AboutApp} />
+            </Switch>
+          </Router>
         </div>
       </div>
       <Footer />

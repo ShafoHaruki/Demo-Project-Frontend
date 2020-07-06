@@ -20,6 +20,10 @@ body {
   flex-direction: column;
 }
 
+.mockGrid {
+  margin-left: 12vw;
+}
+
 .header {
   display: flex;
   flex-direction: row;
