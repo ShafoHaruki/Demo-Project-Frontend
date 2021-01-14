@@ -14,9 +14,14 @@ export default function App() {
   const [flashcards, setFlashcards] = useState([]);
   const [categories, setCategories] = useState([]);
   const [font, setFont] = useState("");
+  const [toggle, setDark] = useState(false);
 
   function handleFontName(font) {
     setFont(font);
+  }
+
+  function handleToggleChange() {
+    toggle ? setDark(false) : setDark(true);
   }
 
   const categoryEl = useRef();
@@ -58,7 +63,7 @@ export default function App() {
   }
 
   return (
-    <>
+    <div className={toggle ? "body" : "body-bright"}>
       <form className="header" onSubmit={handleSubmit}>
         <ViewAgendaIcon />
         <h1 className="title">quizYourself</h1>
@@ -95,7 +100,10 @@ export default function App() {
       </form>
 
       <div className="container">
-        <Sidebar onFontSelect={(font) => handleFontName(font)} />
+        <Sidebar
+          onFontSelect={(font) => handleFontName(font)}
+          onToggleClick={(toggle) => handleToggleChange(toggle)}
+        />
         <div className="flashcard-grid">
           <Router>
             <Switch>
@@ -109,10 +117,11 @@ export default function App() {
               <Route path="/UserDeck" component={UserDeck} />
               <Route path="/AboutApp" component={AboutApp} />
             </Switch>
+            {toggle ? <span>This is Dark</span> : <span>This is Bright</span>}
           </Router>
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }

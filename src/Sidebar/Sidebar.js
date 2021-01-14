@@ -2,8 +2,9 @@ import React from "react";
 import SignUpModal from "../SignUpModal/SignUpModal";
 import { Link, BrowserRouter as Router } from "react-router-dom";
 import "./sidebar.css";
+import { Switch } from "antd";
 
-function Sidebar({ onFontSelect }) {
+function Sidebar({ onFontSelect, onToggleClick }) {
   return (
     <Router>
       <aside>
@@ -22,7 +23,6 @@ function Sidebar({ onFontSelect }) {
             </Link>
           </ul>
         </nav>
-
         <hr />
         <div className="font-select-container">
           <p className="fontSelectHeader">Choose your fonts!</p>
@@ -59,6 +59,10 @@ function Sidebar({ onFontSelect }) {
             Inconsolata Font
           </button>
         </div>
+        <hr />
+
+        <p>This is the theme select</p>
+        <Switch onClick={() => onToggleClick()} />
       </aside>
     </Router>
   );

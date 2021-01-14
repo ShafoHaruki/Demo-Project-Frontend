@@ -1,7 +1,12 @@
-body {
-  background-color: lightgrey;
+.body {
+  background-color: rgb(80, 75, 75);
   margin: 0;
   overflow-y: scroll;
+  transition: background 0.3s linear, color 0.3s linear;
+}
+
+.body-bright {
+  background-color: rgb(185, 185, 185);
 }
 
 .title {
